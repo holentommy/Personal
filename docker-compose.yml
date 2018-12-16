@@ -35,7 +35,7 @@ volumes:
 
 networks:
   localnet:
-    driver: 'host'
+    driver: 'bridge'
     ipam:
       driver: default
       config:
