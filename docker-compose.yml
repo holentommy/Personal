@@ -2,8 +2,9 @@ version: '3.3'
 services:
     headphones:
       image: linuxserver/headphones:latest
-      network_mode: 'host'
-      ipv4_address: '192.168.1.84'
+      networks:
+        localnet:
+          ipv4_address: 192.168.1.84
       container_name: 'headphones'
       restart: 'always'
       volumes:
@@ -31,3 +32,13 @@ volumes:
       type: 'nfs4'
       o: 'addr=192.168.1.55,nolock,soft,rw'
       device: ':/docker/headphones'
+
+networks:
+  localnet:
+    driver: 'host'
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 192.168.1.0/24
