@@ -2,20 +2,14 @@ version: '3.3'
 services:
     headphones:
       image: linuxserver/headphones:latest
-      networks:
-        localnet:
-          ipv4_address: 192.168.1.84
-          gateway: 192.168.1.1
-          # dns: 192.168.1.55
-          dns_search: 'idnorth.net'
       container_name: 'headphones'
       restart: 'always'
       volumes:
           # - type: 'volume'
-          #  source: 'headphonesconfig'
-          #  target: '/config'
-          #  volume:
-          #    nocopy: true
+          #   source: 'headphonesconfig'
+          #   target: '/test'
+          #   volume:
+          #     nocopy: true
           - '/tmp:/config'
           - '/tmp:/downloads'
           - '/tmp:/music'
@@ -36,12 +30,3 @@ volumes:
       type: 'nfs4'
       o: 'addr=192.168.1.55,nolock,soft,rw'
       device: ':/docker/headphones'
-
-networks:
-  localnet:
-    driver: 'bridge'
-    ipam:
-      driver: default
-      config:
-      -
-        subnet: 192.168.1.0/24
