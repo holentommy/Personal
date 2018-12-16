@@ -6,7 +6,7 @@ services:
         localnet:
           ipv4_address: 192.168.1.84
           gateway: 192.168.1.1
-          dns: 192.168.1.55
+          # dns: 192.168.1.55
           dns_search: 'idnorth.net'
       container_name: 'headphones'
       restart: 'always'
