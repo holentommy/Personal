@@ -8,11 +8,12 @@ services:
       container_name: 'headphones'
       restart: 'always'
       volumes:
-          - type: 'volume'
-            source: 'headphonesconfig'
-            target: '/config'
-            volume:
-              nocopy: true
+          # - type: 'volume'
+          #  source: 'headphonesconfig'
+          #  target: '/config'
+          #  volume:
+          #    nocopy: true
+          - '/tmp:/config'
           - '/tmp:/downloads'
           - '/tmp:/music'
       environment:
