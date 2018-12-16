@@ -36,7 +36,6 @@ volumes:
 networks:
   localnet:
     driver: 'host'
-    enable_ipv6: false
     ipam:
       driver: default
       config:
